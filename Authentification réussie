@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Authentification réussie</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification Réussie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #1da1f2;
+        }
+        p {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <h1>Authentification réussie !</h1>
+    <h1>Authentification Réussie !</h1>
     <p>Vous êtes maintenant connecté avec Google. Vous pouvez fermer cette fenêtre.</p>
     <script>
-        // Récupérer le fragment ou les paramètres d'URL
-        const hash = window.location.hash;
-        console.log("Données d'authentification :", hash);
-        // Vous pouvez envoyer ces données à votre application si nécessaire
+        // Récupérer les paramètres ou fragments d'URL
+        const params = new URLSearchParams(window.location.search);
+        const hash = window.location.hash.substring(1); // Supprimer le "#"
+        const hashParams = new URLSearchParams(hash);
+
+        // Extraire le code ou le jeton d'accès
+        const code = params.get('code');
+        const accessToken = hashParams.get('access_token');
+        const error = params.get('error') || hashParams.get('error');
+
+        if (error) {
+            document.body.innerHTML = '<h1>Erreur d\'authentification</h1><p>' + error + '</p>';
+        } else if (code || accessToken) {
+            console.log('Code:', code);
+            console.log('Access Token:', accessToken);
+        } else {
+            document.body.innerHTML = '<h1>Erreur</h1><p>Aucun code ou jeton reçu.</p>';
+        }
     </script>
 </body>
 </html>
