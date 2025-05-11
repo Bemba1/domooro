@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authentification réussie</title>
+</head>
+<body>
+    <h1>Authentification réussie !</h1>
+    <p>Vous êtes maintenant connecté avec Google. Vous pouvez fermer cette fenêtre.</p>
+    <script>
+        // Récupérer le fragment ou les paramètres d'URL
+        const hash = window.location.hash;
+        console.log("Données d'authentification :", hash);
+        // Vous pouvez envoyer ces données à votre application si nécessaire
+    </script>
+</body>
+</html>
