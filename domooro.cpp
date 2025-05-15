@@ -4,7 +4,7 @@
 #include <windows.h>
 
 static void on_sign_in_with_google_clicked(GtkWidget *widget, gpointer data) {
-    const char *supabaseUrl = "https://ibavqwvkyqblsqcrayud.supabase.co/auth/v1/authorize?provider=google&redirect_to=https://Bemba1.github.io/domooro/";
+    const char *supabaseUrl = "https://ibavqwvkyqblsqcrayud.supabase.co/auth/v1/authorize?provider=google&redirect_to=https://Bemba1.github.io/domooro/domooro/";
     std::string command = "cmd.exe /c start \"\" \"" + std::string(supabaseUrl) + "\"";
     system(command.c_str());
 }
